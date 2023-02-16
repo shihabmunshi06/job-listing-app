@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useEffect, useState } from "react"
 
 import TopBackground from "./TopBackground"
 import Search from "./Search"
@@ -12,9 +12,23 @@ export default function App() {
 
     function handleClick(e) {
         setKeywords(prev => [...prev, e.target.innerHTML])
-        console.log(keywords)
+    }
+    function deleteKeywords() {
+        setData(fetchedData)
+        setKeywords([])
+    }
 
-        setData(data.filter((each) => {
+    function clearKeyword(clickedIndex) {
+        setKeywords(
+            keywords.filter((each, index) => {
+                return index !== clickedIndex
+            })
+        )
+
+    }
+
+    useEffect(() => {
+        setData(fetchedData.filter((each) => {
             return (
                 keywords.every(key => {
                     return (
@@ -26,13 +40,20 @@ export default function App() {
                 })
             )
         }))
-    }
+    }, [keywords])
 
     return (
         <React.StrictMode>
             <TopBackground />
-            <Search />
-            <Jobs data={data} handleClick={handleClick} />
+            <Search
+                keywords={keywords}
+                clearKeyword={clearKeyword}
+                deleteKeywords={deleteKeywords}
+            />
+            <Jobs
+                data={data}
+                handleClick={handleClick}
+            />
         </React.StrictMode>
     )
 }

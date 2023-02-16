@@ -1,12 +1,24 @@
-export default function Search() {
+import Keyword from "./Keyword"
+
+export default function Search({ keywords, deleteKeywords, clearKeyword }) {
     return (
-        <div className="search flex">
-            <div className="item flex">
-                <div className="left flex">frontend</div>
-                <div className="right flex">
-                    <img src="./images/icon-remove.svg" alt=""></img>
-                </div>
+        <div className="search-container">
+
+            <div className="search flex">
+                {keywords.map((each, index) => {
+                    return (
+                        <Keyword
+                            key={each}
+                            clearKeyword={clearKeyword}
+                            text={each}
+                            index={index}
+                        />
+                    )
+                })}
+
+                <p onClick={deleteKeywords} className="clear-all">Clear</p>
             </div>
+
         </div>
     )
 }
