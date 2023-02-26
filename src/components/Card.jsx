@@ -12,10 +12,9 @@ export default function Card({
     location,
     languages,
     tools,
-    handleClick,
     new: newAlert }) {
 
-    var attributes = [role, level, ...languages, ...tools]
+    let attributes = [role, level, ...languages, ...tools]
 
     return (
         <div className="job-div flex sb">
@@ -45,7 +44,7 @@ export default function Card({
             </div>
 
 
-            <Attributes attributes={attributes} handleClick={handleClick} />
+            <Attributes attributes={attributes} />
         </div>
     )
 }

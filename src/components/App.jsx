@@ -5,27 +5,13 @@ import Search from "./Search"
 import Jobs from "./Jobs"
 import fetchedData from "../data"
 
+import { useSelector } from "react-redux"
+
 export default function App() {
+    let keywords = useSelector(state => state)
+    console.log(keywords)
 
     var [data, setData] = useState(fetchedData);
-    var [keywords, setKeywords] = useState([]);
-
-    function handleClick(e) {
-        setKeywords(prev => [...prev, e.target.innerHTML])
-    }
-    function deleteKeywords() {
-        setData(fetchedData)
-        setKeywords([])
-    }
-
-    function clearKeyword(clickedIndex) {
-        setKeywords(
-            keywords.filter((each, index) => {
-                return index !== clickedIndex
-            })
-        )
-
-    }
 
     useEffect(() => {
         setData(fetchedData.filter((each) => {
@@ -43,17 +29,12 @@ export default function App() {
     }, [keywords])
 
     return (
-        <React.StrictMode>
+        <>
             <TopBackground />
-            <Search
-                keywords={keywords}
-                clearKeyword={clearKeyword}
-                deleteKeywords={deleteKeywords}
-            />
+            {keywords.length > 0 && <Search keywords={keywords} />}
             <Jobs
                 data={data}
-                handleClick={handleClick}
             />
-        </React.StrictMode>
+        </>
     )
 }

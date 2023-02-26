@@ -1,6 +1,12 @@
 import Keyword from "./Keyword"
 
-export default function Search({ keywords, deleteKeywords, clearKeyword }) {
+import { useDispatch} from "react-redux"
+
+import { deleteAllKeywords } from "../redux/actions"
+
+export default function Search({keywords}) {
+
+    const dispatch = useDispatch()
     return (
         <div className="search-container">
 
@@ -9,14 +15,13 @@ export default function Search({ keywords, deleteKeywords, clearKeyword }) {
                     return (
                         <Keyword
                             key={each}
-                            clearKeyword={clearKeyword}
                             text={each}
                             index={index}
                         />
                     )
                 })}
 
-                <p onClick={deleteKeywords} className="clear-all">Clear</p>
+                <p onClick={() => { dispatch(deleteAllKeywords()) }} className="clear-all">Clear</p>
             </div>
 
         </div>
