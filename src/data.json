@@ -1,9 +1,9 @@
-var data = [
+[
   {
     "id": 1,
     "company": "Photosnap",
     "logo": "./images/photosnap.svg",
-    "new": true,
+    "new": false,
     "featured": true,
     "position": "Senior Frontend Developer",
     "role": "Frontend",
@@ -48,7 +48,7 @@ var data = [
     "id": 4,
     "company": "MyHome",
     "logo": "./images/myhome.svg",
-    "new": false,
+    "new": true,
     "featured": false,
     "position": "Junior Frontend Developer",
     "role": "Frontend",
@@ -71,14 +71,14 @@ var data = [
     "postedAt": "1w ago",
     "contract": "Full Time",
     "location": "Worldwide",
-    "languages": ["JavaScript"],
-    "tools": ["Ruby", "Sass"]
+    "languages": ["JavaScript", "Ruby"],
+    "tools": ["Sass"]
   },
   {
     "id": 6,
     "company": "FaceIt",
     "logo": "./images/faceit.svg",
-    "new": true,
+    "new": false,
     "featured": false,
     "position": "Junior Backend Developer",
     "role": "Backend",
@@ -150,5 +150,3 @@ var data = [
     "tools": ["React", "Sass"]
   }
 ]
-
-export default data;
