@@ -7,8 +7,8 @@
 /coverage/
 
 # Build output (production and other build artifacts)
-/build/
-/dist/
+# /build/
+# /dist/
 
 # Sass cache (Sass temporary files)
 .sass-cache/

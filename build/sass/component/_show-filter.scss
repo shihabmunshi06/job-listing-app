@@ -1,0 +1,65 @@
+@use "../global/zindex";
+
+.show-filter {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 2rem;
+
+  max-height: 18rem;
+  overflow-y: auto;
+  width: 100%;
+  transform: translateY(-50%);
+  border-radius: 0.4rem;
+  padding: 2rem 4rem;
+  background-color: white;
+  box-shadow: 0px 0.5rem 1rem hsla(180, 29%, 50%, 0.25);
+  z-index: 100;
+  .filter-tags-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+
+    .filter-tag-button {
+      display: flex;
+      align-items: center;
+      height: 3rem;
+      background-color: var(--Light_Grayish_Cyan_Filter_Tablets);
+      border-radius: 0.4rem;
+
+      .text {
+        border-radius: 0.4rem 0 0 0.4rem;
+        text-transform: capitalize;
+        font-weight: 700;
+        padding: 1rem;
+      }
+      .clear {
+        @extend %flex;
+        background-color: var(--primary);
+        width: 3rem;
+        height: 98%;
+        border-radius: 0 0.4rem 0.4rem 0;
+        cursor: pointer;
+        &:hover {
+          background-color: var(--Very_Dark_Grayish_Cyan);
+        }
+
+        img {
+          width: 50%;
+          height: 50%;
+        }
+      }
+    }
+  }
+}
+
+.clear-all {
+  p {
+    font-weight: 700;
+    font-size: 1.8rem;
+    cursor: pointer;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}

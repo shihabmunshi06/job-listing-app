@@ -1,0 +1,99 @@
+@use "../global/placeholder";
+
+.card__left {
+  .img-job-container {
+    display: flex;
+    gap: 2.2rem;
+
+    @media screen and (max-width: 850px) {
+      flex-direction: column;
+    }
+
+    .img-div {
+      height: 8rem;
+      width: 8rem;
+      border-radius: 50%;
+
+      @media screen and (max-width: 850px) {
+        position: absolute;
+        bottom: 100%;
+        transform: translateY(50%);
+        height: 6rem;
+        width: 6rem;
+      }
+    }
+
+    .job-details {
+      > * {
+        display: flex;
+        align-items: center;
+      }
+
+      &__top {
+        gap: 1rem;
+        margin-bottom: 1rem;
+
+        .company-name {
+          font-size: 1.8rem;
+          font-weight: 700;
+        }
+
+        .new,
+        .featured {
+          @extend %flex;
+          width: 5rem;
+          height: 2.6rem;
+          border-radius: 1.4rem;
+          background-color: var(--primary);
+          color: white;
+          font-size: 1.4rem;
+          font-weight: 700;
+          text-transform: uppercase;
+          cursor: pointer;
+
+          &:hover {
+            transform: scale(1.1) translate(-5px, -5px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+          }
+        }
+
+        .featured {
+          width: 9rem;
+          height: 2.6rem;
+          background-color: var(--Very_Dark_Grayish_Cyan);
+        }
+      }
+
+      &__mid {
+        margin-bottom: 1rem;
+
+        .job-role {
+          color: var(--Very_Dark_Grayish_Cyan);
+          font-size: 2rem;
+          font-weight: 700;
+          letter-spacing: 3%;
+        }
+      }
+
+      &__bottom {
+        gap: 3rem;
+
+        p {
+          color: var(--Dark_Grayish_Cyan);
+        }
+      }
+
+      @media screen and (max-width: 850px) {
+        margin-top: 4rem; //to push the company name to bottom as pic as absolute
+
+        &__mid {
+          margin-bottom: 1rem;
+        }
+
+        &__bottom {
+          gap: 3rem;
+        }
+      }
+    }
+  }
+}
